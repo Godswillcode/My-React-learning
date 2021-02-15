@@ -1,0 +1,17 @@
+.content-wrapper {
+    width: 69%;
+    margin: auto;
+    box-shadow: 0 5px 5px #ccc;
+}
+
+.title {
+    margin: 18px 0 0;
+}
+
+ .underline {
+    width: 70px;
+    height: 5px;
+    background: blue;
+    margin: auto;
+    margin-bottom: 1.7em;
+}

@@ -1,0 +1,12 @@
+.instock {
+    background: green;
+    color: #fff;
+    font-size: 20px;
+}
+
+.out-stock {
+    background: red;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: line-through;
+}

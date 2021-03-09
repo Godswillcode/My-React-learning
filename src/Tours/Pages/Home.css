@@ -1,0 +1,25 @@
+.hero {
+  height: calc(100vh - 60px);
+  width: 100%;
+  background: url("/images/tourHero.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+.overlay {
+  height: calc(100vh - 60px);
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}

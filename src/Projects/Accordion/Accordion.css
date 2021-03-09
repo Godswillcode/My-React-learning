@@ -1,0 +1,74 @@
+
+  .faq_container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 60px;
+    border-radius: 10px;
+  }
+  
+  .faq_content_wrap {
+    margin-top: 20px;
+  }
+  
+  .accordion_wrap {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 8px 20px 16px 20px;
+    margin-bottom: 40px;
+  }
+  
+  .accordion_wrap h3 {
+    font-weight: 300;
+    font-size: 21px;
+    padding-top: 13px;
+  }
+  
+  .accordion_wrap h2 {
+    color: #1877f2;
+    padding-top: 9px;
+  }
+  
+  .accordion_wrap .letter {
+    font-weight: bold;
+    color: #1877f2;
+    font-size: 35px;
+  }
+  
+  .accordion_wrap .content_header {
+    cursor: pointer;
+    padding: 20px 0 10px 0;
+  }
+  
+  .accordion_wrap .content {
+    overflow: hidden;
+    transition: height ease 0.3s;
+  }
+  
+  .accordion_wrap .content p {
+    border-top: 1px solid #ccc;
+    text-align: justify;
+    padding-top: 12px;
+  }
+  
+  @media (max-width: 768px) {
+    .faq_container {
+      padding: 10px 20px;
+    }
+  
+    .faq_content h1 {
+      font-size: 30px;
+    }
+  
+    .accordion_wrap {
+      margin-bottom: 20px;
+    }
+  
+    .accordion_wrap h2 {
+      padding-left: 10px;
+    }
+  
+    .accordion_wrap h3 {
+      font-size: 17px;
+    }
+  }
+  

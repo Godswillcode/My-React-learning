@@ -1,0 +1,29 @@
+.content-wrapper {
+  width: 69%;
+  margin: 0 auto 3.5rem auto;
+  box-shadow: 0 5px 5px #ccc;
+}
+
+.title {
+  margin: 18px 0 0;
+}
+
+.underline {
+  width: 70px;
+  height: 5px;
+  background: blue;
+  margin: auto;
+  margin-bottom: 1.7em;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    width: 95%;
+    margin: auto;
+    box-shadow: 0 5px 5px #ccc;
+  }
+
+  .content-wrapper h4 {
+    font-size: 1em;
+  }
+}

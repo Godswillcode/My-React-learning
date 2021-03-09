@@ -1,3 +1,48 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
+/* NotFoundPage {404} */
+.page-wrap {
+  height: calc(100vh - 60px);
+  width: 100%;
+  background: lightskyblue;
+}
+
+.page-wrap .wrapper {
+  height: calc(100vh - 60px);
+}
+
+.page-wrap .content-wrap {
+  background: #fff;
+  width: 50%;
+}
+
+.page-wrap h1 {
+  font-size: 7rem;
+}
+
+.page-wrap h4 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.page-wrap p {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+@media (max-width: 768px) {
+  .page-wrap .content-wrap {
+    width: 100%;
+  }
+
+  .page-wrap h1 {
+    font-size: 3rem;
+  }
+}
+
+
+

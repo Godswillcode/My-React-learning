@@ -18,16 +18,22 @@ const validate = (person) => {
     errors.email = "Email is not valid";
   }
 
+  if(!person.phone) {
+    errors.phone = "Phone is required"
+  } else if (!person.phone.match(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]*$/g)) {
+     errors.phone = "Phone must not contain Alphabet"
+  }
+
   if (!person.password.trim()) {
     errors.password = "Password is required";
   } else if (person.password.length < 5) {
-    errors.password = "Password must be at least 3 characters";
+    errors.password = "Password must be at least 5 characters";
   }
 
   if (!person.password2.trim()) {
     errors.password2 = "Password is required";
   } else if (person.password2.length < 5) {
-    errors.password2 = "Password must be at least 3 characters";
+    errors.password2 = "Password must be at least 5 characters";
   } else if (person.password2 !== person.password) {
     errors.password2 = "Password must match";
   }

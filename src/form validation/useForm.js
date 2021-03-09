@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 // import validate from "./Validate";
 
 const initialState = {
@@ -10,9 +10,9 @@ const initialState = {
 
 const useForm = (validate) => {
   const [formInput, setFormInput] = useState(initialState);
-
   const [inputArray, setInputArray] = useState([]);
   const [errorMsg, setErrorMsg] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,17 +22,22 @@ const useForm = (validate) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrorMsg(validate(formInput));
-
-    //    console.log(object.keys(formErrors));
-    if (Object.keys(errorMsg).length) {
-      setErrorMsg(validate(formInput));
-    } else {
-      const newInput = { ...formInput, id: new Date().getTime().toString() };
-      setInputArray([...inputArray, newInput]);
-      setFormInput(initialState);
-      setErrorMsg(initialState);
-    }
+  setIsSubmitting(true)
   };
+
+  const submitData = useCallback(() => {
+    const newInput = { ...formInput, id: new Date().getTime().toString()};
+    setInputArray([...inputArray, newInput]);
+    setFormInput(initialState);
+    setErrorMsg(initialState);
+    setIsSubmitting(false)
+  }, [formInput, inputArray])
+
+  useEffect(() => {
+      if(Object.keys(errorMsg).length === 0 && isSubmitting) {
+        submitData()
+      }
+  }, [submitData, isSubmitting, errorMsg])
 
   return { handleChange, handleSubmit, formInput, inputArray, errorMsg };
 };

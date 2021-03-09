@@ -1,0 +1,20 @@
+nav {
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+nav ul {
+    padding-top: 15px;
+}
+
+nav .nav_link {
+    font-size: 19px;
+    color: #fff;
+    font-weight: 500;
+}
+
+nav .nav_link:hover {
+    text-decoration: none;
+}

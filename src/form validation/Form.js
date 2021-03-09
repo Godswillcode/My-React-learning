@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import validate from "./Validate";
 
-const initialState = { firstName: "", email: "", password: "", password2: "" };
+const initialState = { firstName: "", email: "", phone: "", password: "", password2: "" };
 
 const Form = () => {
   const [people, setPeople] = useState([]);
@@ -11,11 +11,17 @@ const Form = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setPerson({ ...person, [name]: value });
+
+    //check error on while typing
+    // const formErrors = validate(person);
+    // setErrorMsg(formErrors);
+     
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    //  check error on submit
     const formErrors = validate(person);
     setErrorMsg(formErrors);
     //    console.log(object.keys(formErrors));
@@ -50,8 +56,19 @@ const Form = () => {
             name="email"
             onChange={handleChange}
             value={person.email}
+             className={`${errorMsg.firstName && "border border-danger"}`}
           />
           <span className="d-block text-danger">{errorMsg.email}</span>
+        </div>
+        <div className="form-group">
+          <label htmlFor="phone">Phone</label>
+          <input
+            type="tel"
+            name="phone"
+            onChange={handleChange}
+            value={person.phone}
+          />
+          <span className="d-block text-danger">{errorMsg.phone}</span>
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
@@ -84,6 +101,7 @@ const Form = () => {
             <div key={person.id}>
               <h3>{person.firstName}</h3>
               <h4>{person.email}</h4>
+              <h5>{person.phone}</h5>
               <h5>{person.password}</h5>
               <h5>{person.password2}</h5>
             </div>

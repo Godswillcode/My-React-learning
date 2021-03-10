@@ -46,3 +46,34 @@
 
 
 
+/* BACK TO TOP*/
+.scroll-to-top {
+  position: fixed;
+  bottom: 13px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #1888ff;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 20px;
+  z-index: 200;
+}
+
+.scroll-to-top .icon {
+  margin-top: 10px;
+  animation: scrollTop 0.5s alternate ease infinite;
+}
+
+@keyframes scrollTop {
+  from {
+    transform: translateY(2px);
+  }
+  to {
+    transform: translateY(-1px);
+  }
+}
+
+
+

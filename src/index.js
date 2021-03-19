@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './App';
 import {BrowserRouter} from 'react-router-dom';
-import App from './Page-Transition/App'
-
+import App from './Navbar2/App'
 
 ReactDOM.render(
   <React.StrictMode>

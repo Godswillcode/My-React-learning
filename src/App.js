@@ -1,17 +1,18 @@
 import React from 'react';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-// import TourApp from './Tours/TourApp';
 import ScrollToTop from './ScrollTop';
-import MenuApp from './Eatery-menu/MenuApp';
+import Form from './form validation/Form'
+
+
+
 
 function App() {
   return (
-    <>
+    <div style={{textAlign: 'center'}}>
       <ScrollToTop/>
-        {/* <TourApp/> */}
-        <MenuApp/>
-    </>
+      <Form />
+    </div>
   );
 }
 

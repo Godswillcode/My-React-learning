@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-import App from './Navbar2/App'
+import App from './sendForm/App'
 
 ReactDOM.render(
   <React.StrictMode>

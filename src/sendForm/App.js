@@ -20,11 +20,11 @@ function App() {
     setPerson({ ...person, [e.target.name]: e.target.value });
 
     // check error onChange
-    const formErrors = validate(person);
-    setErrorMsg(formErrors);
-    if (Object.keys(formErrors).length) {
-      return;
-    }
+    // const formErrors = validate(person);
+    // setErrorMsg(formErrors);
+    // if (Object.keys(formErrors).length) {
+    //   return;
+    // }
   };
 
   const onSubmit = (e) => {
@@ -36,7 +36,7 @@ function App() {
     if (Object.keys(formErrors).length) {
       return;
     } else {
-      send(`"gmail", "template_ru8l7ls", ${person}, ${process.env.API_KEY}`)
+      send("gmail", "template_ru8l7ls", person, process.env.REACT_APP_API_KEY)
         .then((response) => {
           alert("SUCCESS!", response.status, response.text);
         })

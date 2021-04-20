@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-// import validate from "./Validate";
 
 const initialState = {
   firstName: "",

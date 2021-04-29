@@ -2,20 +2,27 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 
-const Navbar = () => {
+const Navbar = ({click}) => {
     return (
         <nav className="navbar">
-            {/* logo */}
-            <div className="navbar-logo">
+         
+            <div className="navbar_logo">
                 <h2>Logo</h2>
             </div>
 
-            {/* links */}
-            <ul className="navbar-links">
+         
+            <ul className="navbar_links">
                 <li> <Link to="/">Home</Link>  </li>
                 <li> <Link to="/">About</Link>  </li>
                 <li> <Link to="/">Contact</Link>  </li>
             </ul>
+
+       
+            <div className="hamburger_menu" onClick={click}>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
         </nav>
     )
 }

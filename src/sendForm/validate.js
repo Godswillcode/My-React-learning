@@ -1,20 +1,20 @@
-const validate = (person) => {
+const validatePerson = (person) => {
   let errors = {};
-  if (!person.contactName.trim()) {
-    errors.contactName = "Name is required";
-  } else if (!person.contactName.match(/^[a-z ,.'-]+$/i)) {
-    errors.contactName = "Name must not contain number";
+  if (!person.parentFirstName.trim()) {
+    errors.parentFirstName = "Name is required";
+  } else if (!person.parentFirstName.match(/^[a-z ,.'-]+$/i)) {
+    errors.parentFirstName = "Name must not contain number";
   }
 
-  if (!person.contactEmail.trim()) {
-    errors.contactEmail = "Email is required";
-  } else if (
-    !person.contactEmail.match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    )
-  ) {
-    errors.contactEmail = "Email is not valid";
-  }
+  // if (!person.contactEmail.trim()) {
+  //   errors.contactEmail = "Email is required";
+  // } else if (
+  //   !person.contactEmail.match(
+  //     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  //   )
+  // ) {
+  //   errors.contactEmail = "Email is not valid";
+  // }
 
   if (!person.contactPhone) {
     errors.contactPhone = "Phone is required";
@@ -35,4 +35,4 @@ const validate = (person) => {
   return errors;
 };
 
-export default validate;
+export default validatePerson;

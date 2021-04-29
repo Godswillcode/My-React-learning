@@ -1,45 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import validatePerson from "./validate";
 
 const initialState = {
-    parentFirstName: "",
-    parentLastName: "",
-    parentEmail: "",
-    parentPhone: "",
-    relationship: "",
-    parentAddress: "",
-    childFirstName: "",
-    childMiddleName: "",
-    childLastName: "",
-    childDOB: "",
-    schoolYear: "",
-    classApply: "",
-    preferredName: "",
-    gender: "",
-    SiblingAttendBell: ""
-  };
+  parentFirstName: "",
+  parentLastName: "",
+  parentEmail: "",
+  parentPhone: "",
+  relationship: "",
+  parentAddress: "",
+  childFirstName: "",
+  childMiddleName: "",
+  childLastName: "",
+  childDOB: "",
+  schoolYear: "",
+  classApply: "",
+  preferredName: "",
+  gender: "",
+  SiblingAttendBell: "",
+};
 function App2() {
-  
-      const [person, setPerson] = useState(initialState);
-      const [errorMsg, setErrorMsg] = useState(initialState);
-      const [people, setPeople] = useState([]);
+  const [person, setPerson] = useState(initialState);
+  const [errorMsg, setErrorMsg] = useState(initialState);
+  const [people, setPeople] = useState([]);
 
-      const handleChange = (e) => {
-        setPerson({ ...person, [e.target.name]: e.target.value });
-      }
+  const handleChange = (e) => {
+    setPerson({ ...person, [e.target.name]: e.target.value });
+  };
 
-      const handleSubmit = (e) => {
-        e.preventDefault();
-   
-          const newPerson = { ...person, id: new Date().getTime().toString() };
-          setPeople([...people, newPerson]);
-          setPerson(initialState);
-         
-      };
-    
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    return (
-        <div>
-               {/* Main Application */}
+    //  check error on submit
+    const formErrors = validatePerson(person);
+    setErrorMsg(formErrors);
+    //    console.log(object.keys(formErrors));
+    if (Object.keys(formErrors).length) {
+      return;
+    } else {
+      const newPerson = { ...person, id: new Date().getTime().toString() };
+      setPeople([...people, newPerson]);
+      setPerson(initialState);
+      setErrorMsg(initialState);
+    }
+  };
+
+  return (
+    <div>
+      {/* Main Application */}
       <div className="container px-5 flex justify-center mb-20 mt-10">
         <div className="lg:w-3/4 bg-gray-400 px-3 pt-4 pb-16">
           <h2 className="font-medium text-2xl py-3">
@@ -58,17 +65,7 @@ function App2() {
                   onChange={handleChange}
                   value={person.parentFirstName}
                 />
-
-                <input
-                  type="text"
-                  name="parentLastName"
-                  id="parentLastName"
-                  placeholder="Last name"
-                  className="py-2 px-3 rounded-sm w-full focus:outline-none"
-                  onChange={handleChange}
-                  value={person.parentLastName}
-                />
-
+                {/* <span className="block text-red-300">{errorMsg.parentFirstName}</span> */}
                 <input
                   type="tel"
                   name="parentPhone"
@@ -92,7 +89,7 @@ function App2() {
                 <select
                   name="relationship"
                   id="relationship"
-                  className="py-2 px-3 rounded-sm w-full focus:outline-none"
+                  className="py-2 px-2 rounded-sm w-full focus:outline-none col-span-1"
                   onChange={handleChange}
                   value={person.relationship}
                 >
@@ -101,16 +98,16 @@ function App2() {
                   <option value="mother">Mother</option>
                   <option value="guardian">Guardian</option>
                 </select>
+                <input
+                  type="text"
+                  name="parentAddress"
+                  id="parentAddress"
+                  placeholder="Enter Full Address, house, street, city and State."
+                  className="py-2 px-3 rounded-sm w-full focus:outline-none mt-4 md:col-span-2"
+                  onChange={handleChange}
+                  value={person.parentAddress}
+                />
               </div>
-              <input
-                type="text"
-                name="parentAddress"
-                id="parentAddress"
-                placeholder="Enter Full Address, house, street, city and State."
-                className="py-2 px-3 rounded-sm w-full focus:outline-none mt-4"
-                onChange={handleChange}
-                value={person.parentAddress}
-              />
 
               {/* child information */}
               <h2 className="font-medium text-2xl mt-10">
@@ -254,8 +251,7 @@ function App2() {
         </div>
       </div>
 
-
- <div className="mt-4 ml-10">
+      <div className="mt-4 ml-10">
         {people.map((person) => {
           return (
             <div key={person.id}>
@@ -265,24 +261,24 @@ function App2() {
               <h4>Phone: {person.parentPhone}</h4>
               <h4>Relationship: {person.relationship}</h4>
               <h4>Address: {person.parentAddress}</h4>
-             
-             <h1>Childs info</h1>
 
-             <h4>First Name: {person.childFirstName}</h4>
-             <h4>Last Name: {person.childLastName}</h4>
-             <h4>Middle Name: {person.childMiddleName}</h4>
-             <h4>Preferred Name: {person.preferredName}</h4>
-             <h4>schoolYear: {person.schoolYear}</h4>
-             <h4>Class apply: {person.classApply}</h4>
-             <h4>Gender: {person.gender}</h4>
-             <h4>Birth: {person.childDOB}</h4>
-             <h4>SiblingAttendBell: {person.SiblingAttendBell}</h4>
+              <h1>Childs info</h1>
+
+              <h4>First Name: {person.childFirstName}</h4>
+              <h4>Last Name: {person.childLastName}</h4>
+              <h4>Middle Name: {person.childMiddleName}</h4>
+              <h4>Preferred Name: {person.preferredName}</h4>
+              <h4>schoolYear: {person.schoolYear}</h4>
+              <h4>Class apply: {person.classApply}</h4>
+              <h4>Gender: {person.gender}</h4>
+              <h4>Birth: {person.childDOB}</h4>
+              <h4>SiblingAttendBell: {person.SiblingAttendBell}</h4>
             </div>
           );
         })}
       </div>
-        </div>
-    )
+    </div>
+  );
 }
 
-export default App2
+export default App2;

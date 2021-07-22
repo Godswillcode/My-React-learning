@@ -1,40 +1,56 @@
-import React from 'react'
-import './nav.css'
-import logo from "./logo.png"
+import React, { useState } from "react";
+import "./nav.css";
+import logo from "./logo.png";
 
 function Navbar() {
-
-    const [click, setClick] = useState(true);
+  const [click, setClick] = useState(true);
 
   function openNav() {
     setClick(!click);
   }
-    return (
-       
+  return (
     <header>
-    <div className="logo">
+      <div className="logo">
         <img src={logo} alt="" />
-        <a href="!#" className="header__logo">Ay-Projex</a>
-    </div>
-    <nav className="nav" id="nav-menu">
-
+        <a href="!#" className="header__logo">
+          Ay-Projex
+        </a>
+      </div>
+      <nav className="nav" id="nav-menu">
         <i className="fas fa-times header__close" id="nav-close"></i>
 
         <ul className="nav__list">
-
-            <li className="nav__item"><a href="!#" className="nav__link">Home</a></li>
-            <li className="nav__item"><a href="!#" className="nav__link">About</a></li>
-            <li className="nav__item"><a href="!#" className="nav__link">Skills</a></li>
-            <li className="nav__item"><a href="!#" className="nav__link">Portfolio</a></li>
-            <li className="nav__item"><a href="!#" className="nav__link">Contact</a></li>
-
+          <li className="nav__item">
+            <a href="!#" className="nav__link">
+              Home
+            </a>
+          </li>
+          <li className="nav__item">
+            <a href="!#" className="nav__link">
+              About
+            </a>
+          </li>
+          <li className="nav__item">
+            <a href="!#" className="nav__link">
+              Skills
+            </a>
+          </li>
+          <li className="nav__item">
+            <a href="!#" className="nav__link">
+              Portfolio
+            </a>
+          </li>
+          <li className="nav__item">
+            <a href="!#" className="nav__link">
+              Contact
+            </a>
+          </li>
         </ul>
+      </nav>
 
-    </nav>
-
-    <i className="fas fa-bars header__toggle" id="nav-toggle"></i>
-</header>
-    )
+      <i className="fas fa-bars header__toggle" id="nav-toggle"></i>
+    </header>
+  );
 }
 
-export default Navbar
+export default Navbar;

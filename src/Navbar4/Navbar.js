@@ -16,8 +16,8 @@ function Navbar() {
           Ay-Projex
         </a>
       </div>
-      <nav className="nav" id="nav-menu">
-        <i className="fas fa-times header__close" id="nav-close"></i>
+      <nav className={click ? "nav" : "nav show"}>
+        <i className="fas fa-times header__close" id="nav-close" onClick={openNav}></i>
 
         <ul className="nav__list">
           <li className="nav__item">
@@ -48,7 +48,7 @@ function Navbar() {
         </ul>
       </nav>
 
-      <i className="fas fa-bars header__toggle" id="nav-toggle"></i>
+      <i className="fas fa-bars header__toggle" id="nav-toggle" onClick={openNav}></i>
     </header>
   );
 }

@@ -118,7 +118,7 @@ header {
     .nav__item {
         margin: 2rem 0;
     }
-    .show {
+    .nav.show {
         right: 0;
     }
 }
